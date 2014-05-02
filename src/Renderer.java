@@ -3,9 +3,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
-import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
-import static org.lwjgl.opengl.GL11.glEnable;
-import static org.lwjgl.opengl.GL11.glViewport;
+import static org.lwjgl.opengl.GL11.*;
 
 public class Renderer {
 
@@ -31,6 +29,7 @@ public class Renderer {
 
     private void initialize() {
         glEnable(GL_TEXTURE_2D);
+        glDisable(GL_DEPTH_TEST);
         glViewport(0, 0, WIDTH, HEIGHT);
     }
 
