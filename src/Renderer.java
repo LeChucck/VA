@@ -30,6 +30,8 @@ public class Renderer {
     private void initialize() {
         glEnable(GL_TEXTURE_2D);
         glDisable(GL_DEPTH_TEST);
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
         glViewport(0, 0, WIDTH, HEIGHT);
     }
 
