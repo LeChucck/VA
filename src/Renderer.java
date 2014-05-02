@@ -1,4 +1,5 @@
 import org.lwjgl.LWJGLException;
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
@@ -10,7 +11,7 @@ public class Renderer {
     public void start() {
         try {
             Display.setDisplayMode(new DisplayMode(WIDTH,HEIGHT));
-            Display.setInitialBackground(30f, 40f, 255f);
+            Display.setTitle("Very Access");
             Display.create();
         } catch (LWJGLException e) {
             e.printStackTrace();
@@ -18,15 +19,23 @@ public class Renderer {
         }
 
         while(!Display.isCloseRequested()) {
+            checkInput();
             Display.update();
         }
 
         Display.destroy();
     }
 
+    private void checkInput() {
+        while(Keyboard.next()) {
+            if(Keyboard.isKeyDown(Keyboard.KEY_UP)) {
+
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Renderer renderer = new Renderer();
-        Input playerInput = new Input();
         renderer.start();
     }
 }
