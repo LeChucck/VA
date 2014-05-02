@@ -3,6 +3,10 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
+import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
+import static org.lwjgl.opengl.GL11.glEnable;
+import static org.lwjgl.opengl.GL11.glViewport;
+
 public class Renderer {
 
     private static final int WIDTH = 600;
@@ -19,13 +23,23 @@ public class Renderer {
             System.exit(0);
         }
 
+        initialize();
+        gameLoop();
+
+        Display.destroy();
+    }
+
+    private void initialize() {
+        glEnable(GL_TEXTURE_2D);
+        glViewport(0, 0, WIDTH, HEIGHT);
+    }
+
+    private void gameLoop() {
         while(!Display.isCloseRequested()) {
             checkInput();
             Display.sync(10);
             Display.update();
         }
-
-        Display.destroy();
     }
 
     private void checkInput() {
