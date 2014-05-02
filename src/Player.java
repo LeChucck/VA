@@ -4,6 +4,6 @@
 public class Player extends Sprite {
 
     public Player() {
-        image =
+        //image =
     }
 }
