@@ -12,6 +12,7 @@ public class Renderer {
         try {
             Display.setDisplayMode(new DisplayMode(WIDTH,HEIGHT));
             Display.setTitle("Very Access");
+            Display.setVSyncEnabled(true);
             Display.create();
         } catch (LWJGLException e) {
             e.printStackTrace();
@@ -20,6 +21,7 @@ public class Renderer {
 
         while(!Display.isCloseRequested()) {
             checkInput();
+            Display.sync(10);
             Display.update();
         }
 
@@ -29,7 +31,7 @@ public class Renderer {
     private void checkInput() {
         while(Keyboard.next()) {
             if(Keyboard.isKeyDown(Keyboard.KEY_UP)) {
-
+                System.out.println("UP IS DOWN");
             }
         }
     }
